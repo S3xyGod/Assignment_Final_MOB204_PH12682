@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.s3xygod.activity">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.s3xygod.activity.SachActivity"></activity>
+        <activity android:name="com.s3xygod.activity.List.ListBook" />
+        <activity android:name="com.s3xygod.activity.function.UpdateUser" />
+        <activity android:name="com.s3xygod.activity.List.ListInvoiceDetail" />
+        <activity android:name="com.s3xygod.activity.HoaDonChiTietActivity" />
+        <activity android:name="com.s3xygod.activity.Passmanager.Change" />
+        <activity android:name="com.s3xygod.activity.Passmanager.DoiMK" />
+        <activity android:name="com.s3xygod.activity.List.ListInvoice" />
+        <activity android:name="com.s3xygod.activity.List.ListCategory" />
+        <activity android:name="com.s3xygod.activity.List.ListUser" />
+        <activity android:name="com.s3xygod.activity.DangNhapActivity" />
+        <activity android:name="com.s3xygod.activity.ThongKeActivity" />
+        <activity android:name="com.s3xygod.activity.SachBanChayActivity" />
+        <activity android:name="com.s3xygod.activity.HoaDonActivity" />
+        <activity android:name="com.s3xygod.activity.TheLoaiActivity" />
+        <activity android:name="com.s3xygod.activity.NguoiDungActivity" />
+        <activity android:name="com.s3xygod.activity.TrangChuActivity" />
+        <activity android:name="com.s3xygod.activity.DangkiActivity" />
+        <activity android:name="com.s3xygod.activity.ChaoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
