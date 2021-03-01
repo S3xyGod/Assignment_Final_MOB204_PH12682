@@ -33,5 +33,4 @@ public class ChaoActivity extends AppCompatActivity {
        };
        thread.start();
     }
-    //jjjjj
 }
