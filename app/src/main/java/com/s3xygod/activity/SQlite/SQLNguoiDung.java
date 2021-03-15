@@ -21,7 +21,7 @@ public class SQLNguoiDung extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_NguoiDung = "Create table NguoiDung(ID text primary key , Name Nvarchar(50), Phone varchar(50), Gmail text)";
+        String create_NguoiDung = "Create table NguoiDung(ID text primary key , Name Nvarchar(50), Phone varchar(50), Gmail text, STK text)";
         db.execSQL(create_NguoiDung);
     }
     public void addNguoiDung(NguoiDung nguoiDung){
@@ -31,7 +31,31 @@ public class SQLNguoiDung extends SQLiteOpenHelper {
         contentValues.put("Name",nguoiDung.getTen());
         contentValues.put("Phone",nguoiDung.getSdt());
         contentValues.put("Gmail",nguoiDung.getGmail());
+        contentValues.put("STK", nguoiDung.getSTK());
         db.insert("NguoiDung",null,contentValues);
+    }
+
+    public NguoiDung timKiem(String id){
+        String get_all = "SELECT * FROM NguoiDung";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(get_all,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            String idMem,name,phone,gmail, stk;
+            idMem = cursor.getString(0);
+            name = cursor.getString(1);
+            phone = cursor.getString(2);
+            gmail = cursor.getString(3);
+            stk = cursor.getString(4);
+            if (id.equals(idMem)){
+                NguoiDung nguoiDung = new NguoiDung(idMem,name,phone,gmail, stk);
+                return nguoiDung;
+            }
+            cursor.moveToNext();
+        }
+        cursor.close();
+        NguoiDung nguoiDung2 = new NguoiDung("@","","","", "");
+        return nguoiDung2;
     }
     public List<NguoiDung> getall(){
         List<NguoiDung> nguoiDungList = new ArrayList<>();
@@ -40,12 +64,13 @@ public class SQLNguoiDung extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(get_all,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            String id,name,phone,gmail;
+            String id,name,phone,gmail, stk;
             id = cursor.getString(0);
             name = cursor.getString(1);
             phone = cursor.getString(2);
             gmail = cursor.getString(3);
-            NguoiDung nguoiDung = new NguoiDung(id,name,phone,gmail);
+            stk = cursor.getString(4);
+            NguoiDung nguoiDung = new NguoiDung(id,name,phone,gmail, stk);
             nguoiDungList.add(nguoiDung);
             cursor.moveToNext();
         }
@@ -67,6 +92,7 @@ public class SQLNguoiDung extends SQLiteOpenHelper {
         contentValues.put("Name", nguoiDung.ten);
         contentValues.put("Phone", nguoiDung.sdt);
         contentValues.put("Gmail", nguoiDung.gmail);
+        contentValues.put("STK", nguoiDung.STK);
 
          db.update("NguoiDung", contentValues,
                 "ID=?", new String[]{nguoiDung.getId()});

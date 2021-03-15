@@ -20,7 +20,7 @@ public class SQLTheLoai extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_TheLoai = "Create table TheLoai(ID text primary key , Name Nvarchar(50), ViTri Nvarchar(50), MoTa text)";
+        String create_TheLoai = "Create table TheLoai(ID text primary key , Name Nvarchar(50), ViTri Nvarchar(50), MoTa text, NCC text)";
         db.execSQL(create_TheLoai);
     }
     public void addTheLoai(TheLoai theLoai){
@@ -30,6 +30,7 @@ public class SQLTheLoai extends SQLiteOpenHelper {
         contentValues.put("Name",theLoai.getTen());
         contentValues.put("ViTri",theLoai.getVitri());
         contentValues.put("MoTa",theLoai.getMota());
+        contentValues.put("NCC",theLoai.getNcc());
         db.insert("TheLoai",null,contentValues);
     }
     public List<TheLoai> getall(){
@@ -39,17 +40,34 @@ public class SQLTheLoai extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(get_all,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            String id,name,vitri,mota;
+            String id,name,vitri,mota, ncc;
             id = cursor.getString(0);
             name = cursor.getString(1);
             vitri = cursor.getString(2);
             mota = cursor.getString(3);
-            TheLoai theLoai = new TheLoai(id,name,vitri,mota);
+            ncc = cursor.getString(4);
+            TheLoai theLoai = new TheLoai(id,name,vitri,mota, ncc);
             theLoaiList.add(theLoai);
             cursor.moveToNext();
         }
         cursor.close();
         return theLoaiList;
+    }
+
+    public List<String> getallStrTL(){
+        List<String> StrTL = new ArrayList<>();
+        String get_all = "SELECT * FROM TheLoai";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(get_all,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            String name;
+            name = cursor.getString(1);
+            StrTL.add(name);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return StrTL;
     }
     public boolean xoaTheLoai(String id) {
         SQLiteDatabase db =getWritableDatabase();
@@ -66,6 +84,7 @@ public class SQLTheLoai extends SQLiteOpenHelper {
         contentValues.put("Name", theLoai.ten);
         contentValues.put("ViTri", theLoai.vitri);
         contentValues.put("MoTa", theLoai.mota);
+        contentValues.put("NCC", theLoai.ncc);
 
         db.update("TheLoai", contentValues,
                 "ID=?", new String[]{theLoai.getId()});

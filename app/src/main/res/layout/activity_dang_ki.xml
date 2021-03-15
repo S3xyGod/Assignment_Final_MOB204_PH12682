@@ -18,9 +18,10 @@
         android:textColorHint="#C1C1C1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txt_pass"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txt_pass"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.23" />
 
     <EditText
         android:id="@+id/txt_pass"
@@ -48,7 +49,7 @@
         android:textColorHint="#C1C1C1"
         app:layout_constraintBottom_toTopOf="@+id/edtPhone"
         app:layout_constraintEnd_toEndOf="@+id/edtPhone"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtPhone"
         app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
 

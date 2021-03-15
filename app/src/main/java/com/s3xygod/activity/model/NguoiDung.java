@@ -1,14 +1,23 @@
 package com.s3xygod.activity.model;
 
 public class NguoiDung {
-    public String id, ten, sdt, gmail;
+    public String id, ten, sdt, gmail , STK;
 
-    public NguoiDung(String id, String ten, String sdt, String gmail) {
+//    public NguoiDung(String id, String ten, String sdt, String gmail) {
+//        this.id = id;
+//        this.ten = ten;
+//        this.sdt = sdt;
+//        this.gmail = gmail;
+//    }
+
+    public NguoiDung(String id, String ten, String sdt, String gmail, String STK) {
         this.id = id;
         this.ten = ten;
         this.sdt = sdt;
         this.gmail = gmail;
+        this.STK = STK;
     }
+
     public String getId() {
         return id;
     }
@@ -41,4 +50,11 @@ public class NguoiDung {
         this.gmail = gmail;
     }
 
+    public String getSTK() {
+        return STK;
+    }
+
+    public void setSTK(String STK) {
+        this.STK = STK;
+    }
 }

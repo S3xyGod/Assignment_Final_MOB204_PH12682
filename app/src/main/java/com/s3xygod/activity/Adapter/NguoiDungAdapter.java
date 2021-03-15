@@ -1,5 +1,7 @@
 package com.s3xygod.activity.Adapter;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class NguoiDungAdapter extends BaseAdapter {
     List<NguoiDung> nguoiDungList;
+    int i = 0;
     public NguoiDungAdapter(List<NguoiDung> nguoiDungList){
         this.nguoiDungList = nguoiDungList;
     }
@@ -40,10 +43,18 @@ public class NguoiDungAdapter extends BaseAdapter {
         TextView nameUser = view.findViewById(R.id.name);
         TextView phoneUser = view.findViewById(R.id.phone);
         TextView gmailUser = view.findViewById(R.id.gmail);
-        idUser.setText(nguoiDungList.get(i).id );
-        nameUser.setText(nguoiDungList.get(i).ten);
-        phoneUser.setText(nguoiDungList.get(i).sdt);
-        gmailUser.setText(nguoiDungList.get(i).gmail);
+        TextView stkUser = view.findViewById(R.id.viewSTk);
+        idUser.setText("Mã số: "+nguoiDungList.get(i).id );
+        nameUser.setText("Họ tên: "+nguoiDungList.get(i).ten);
+        phoneUser.setText("SDT: "+nguoiDungList.get(i).sdt);
+        gmailUser.setText("Email: "+nguoiDungList.get(i).gmail);
+
+        int a = Integer.parseInt(nguoiDungList.get(i).STK);
+        if (a % 5 == 0){
+            stkUser.setTypeface(stkUser.getTypeface(), Typeface.BOLD);
+        }
+        stkUser.setText("STK: "+nguoiDungList.get(i).STK);
+
         view.findViewById(R.id.btnXoa).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

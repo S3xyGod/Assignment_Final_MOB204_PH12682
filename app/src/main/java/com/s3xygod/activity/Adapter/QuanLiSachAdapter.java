@@ -1,9 +1,14 @@
 package com.s3xygod.activity.Adapter;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +29,7 @@ public class QuanLiSachAdapter extends BaseAdapter {
     }
     @Override
     public Object getItem(int i) {
-        return null;
+        return sachList.get(i);
     }
 
     @Override
@@ -34,21 +39,23 @@ public class QuanLiSachAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int i, View view, final ViewGroup viewGroup) {
-        view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.showbook, viewGroup, false);
-        final TextView idSach = view.findViewById(R.id.idsach);
-        TextView tlBook = view.findViewById(R.id.theloai);
-        TextView nameSach = view.findViewById(R.id.tensach);
-        TextView tg = view.findViewById(R.id.tacgia);
-        TextView nxb = view.findViewById(R.id.nhaxuatban);
-        TextView dong = view.findViewById(R.id.dongia);
-        TextView sl = view.findViewById(R.id.soluong);
-        idSach.setText(sachList.get(i).idsach );
-        tlBook.setText(sachList.get(i).tlsach);
-        nameSach.setText(sachList.get(i).tensach);
-        tg.setText(sachList.get(i).tacgia);
-        nxb.setText(sachList.get(i).nhaxuatban);
-        dong.setText(sachList.get(i).dongia);
-        sl.setText(sachList.get(i).soluong);
+        view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.onebook, viewGroup, false);
+        final TextView idSach = view.findViewById(R.id.txtidsach);
+        TextView tlBook = view.findViewById(R.id.txttheloai);
+        final TextView nameSach = view.findViewById(R.id.txttensach);
+        TextView tg = view.findViewById(R.id.txttacgia);
+        TextView nxb = view.findViewById(R.id.txtnhaxuatban);
+        TextView dong = view.findViewById(R.id.txtdongia);
+        TextView sl = view.findViewById(R.id.txtsoluong);
+        TextView km = view.findViewById(R.id.txtkhuyenMai);
+        idSach.setText("ID: "+sachList.get(i).idsach );
+        tlBook.setText("Thể loại: "+sachList.get(i).tlsach);
+        nameSach.setText("Tên sách: "+sachList.get(i).tensach);
+        tg.setText("Tác giả: "+sachList.get(i).tacgia);
+        nxb.setText("NXB: "+sachList.get(i).nhaxuatban);
+        dong.setText("Giá: "+sachList.get(i).dongia);
+        sl.setText("Số lượng: "+sachList.get(i).soluong);
+        km.setText("Khuyến mãi: "+sachList.get(i).khuyenmai);
         view.findViewById(R.id.btnXoa).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +72,25 @@ public class QuanLiSachAdapter extends BaseAdapter {
                 }
             }
         });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(viewGroup.getContext());
+                b.setTitle("Thông tin sách");
+                b.setMessage("\nID: "+sachList.get(i).idsach+"\nTên sách: "+sachList.get(i).tensach+"\nTác giả: "+sachList.get(i).tacgia
+                +"\nNXB: "+sachList.get(i).nhaxuatban);
+                b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = b.create();
+                alertDialog.show();
+            }
+        });
+
+
         return view;
     }
 

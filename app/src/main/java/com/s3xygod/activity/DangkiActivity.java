@@ -11,9 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.s3xygod.activity.SQlite.SQLNguoiDung;
+import com.s3xygod.activity.model.NguoiDung;
+
 public class DangkiActivity extends AppCompatActivity {
 Button btSignIn, btSignUp, btCancel;
-EditText user, pass, repass, phone, email;
+EditText user, pass, repass, phone, email, stk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ EditText user, pass, repass, phone, email;
         repass = findViewById(R.id.edtPass);
         phone = findViewById(R.id.edtPhone);
         email = findViewById(R.id.edtEmail);
+        stk = findViewById(R.id.edtSTK);
         setTitle("Đăng ký thành viên mới");
         btSignUp.setOnClickListener(new View.OnClickListener() {
             public boolean validateEmail(CharSequence email) {
@@ -80,13 +84,15 @@ EditText user, pass, repass, phone, email;
                 if (!validateEmail(email.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập đúng định dạng email", Toast.LENGTH_SHORT).show();
                     return;
- //               }
-//                    if(pass.getText().toString() != repass.getText().toString()){
-//                        Toast.makeText(getApplicationContext(), "Vui lòng nhập đúng mật khẩu", Toast.LENGTH_SHORT).show();
-//                        return;
-
+                }
+                if(!pass.getText().toString().equals(repass.getText().toString())){
+                        Toast.makeText(getApplicationContext(), "Vui lòng nhập 2 mật khẩu giống nhau", Toast.LENGTH_SHORT).show();
+                        return;
                 } else {
                     Toast.makeText(getApplicationContext(), "Đăng kí thành công, vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
+                    NguoiDung nguoiDung = new NguoiDung(user.getText().toString(), user.getText().toString(), pass.getText().toString(), email.getText().toString(), stk.getText().toString());
+                    SQLNguoiDung sqlNguoiDung = new SQLNguoiDung(getApplicationContext());
+                    sqlNguoiDung.addNguoiDung(nguoiDung);
                     Intent i = new Intent(DangkiActivity.this, DangNhapActivity.class);
                     startActivity(i);
                 }

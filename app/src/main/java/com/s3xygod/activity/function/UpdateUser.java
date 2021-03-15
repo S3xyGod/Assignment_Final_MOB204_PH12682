@@ -17,7 +17,7 @@ import com.s3xygod.activity.SQlite.SQLNguoiDung;
 import com.s3xygod.activity.model.NguoiDung;
 
 public class UpdateUser extends AppCompatActivity {
-EditText id,name,phone,gmail;
+EditText id,name,phone,gmail, stk;
 Button btUpdate,btCancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ Button btUpdate,btCancel;
         gmail = findViewById(R.id.edtGmail);
         btUpdate = findViewById(R.id.btnUpdate);
         btCancel = findViewById(R.id.btnCancel);
+        stk = findViewById(R.id.edtSTK);
         btUpdate.setOnClickListener(new View.OnClickListener() {
             public boolean validateEmail(CharSequence email) {
                 return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
@@ -70,7 +71,7 @@ Button btUpdate,btCancel;
                 else {
                     Toast.makeText(getApplicationContext(), "Thay đổi thành công", Toast.LENGTH_SHORT).show();
                     SQLNguoiDung sqlNguoiDung = new SQLNguoiDung(UpdateUser.this);
-                    NguoiDung nguoiDung = new NguoiDung(id.getText().toString(), name.getText().toString(), phone.getText().toString(), gmail.getText().toString());
+                    NguoiDung nguoiDung = new NguoiDung(id.getText().toString(), name.getText().toString(), phone.getText().toString(), gmail.getText().toString(),stk.getText().toString() );
                     sqlNguoiDung.suaNguoiDung(nguoiDung);
                     Intent i = new Intent(UpdateUser.this, ListUser.class);
                     startActivity(i);

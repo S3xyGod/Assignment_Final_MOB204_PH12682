@@ -1,5 +1,6 @@
 package com.s3xygod.activity.Adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +41,33 @@ public class TheLoaiAdapter extends BaseAdapter {
         TextView nameTheLoai = view.findViewById(R.id.tentheloai);
         TextView vitri = view.findViewById(R.id.vitri);
         TextView mota = view.findViewById(R.id.mota);
+        TextView Ncc = view.findViewById(R.id.txtNcc);
         TheLoai theLoai = theLoaiList.get(i);
-        idTheLoai.setText(theLoai.id);
-        nameTheLoai.setText(theLoai.ten);
-        vitri.setText(theLoai.vitri);
-        mota.setText(theLoai.mota);
+        idTheLoai.setText("Mã thể loại: "+theLoai.id);
+        nameTheLoai.setText("Tên thể loại: "+theLoai.ten);
+        vitri.setText("Vị trí: "+theLoai.vitri);
+        mota.setText("Mô tả: "+theLoai.mota);
+        Ncc.setText("Nhà cung cấp: "+theLoai.ncc);
+        char x = theLoai.ten.toString().charAt(0);
+//        if (x == 'N' || x == 'n'){
+//            idTheLoai.setTextColor(Color.parseColor("#00FF0A"));
+//            nameTheLoai.setTextColor(Color.parseColor("#00FF0A"));
+//            vitri.setTextColor(Color.parseColor("#00FF0A"));
+//            mota.setTextColor(Color.parseColor("#00FF0A"));
+//            Ncc.setTextColor(Color.parseColor("#00FF0A"));
+//        }else if (x == 'A' || x == 'a'){
+//            idTheLoai.setTextColor(Color.parseColor("#FF0000"));
+//            nameTheLoai.setTextColor(Color.parseColor("#FF0000"));
+//            vitri.setTextColor(Color.parseColor("#FF0000"));
+//            mota.setTextColor(Color.parseColor("#FF0000"));
+//            Ncc.setTextColor(Color.parseColor("#FF0000"));
+//        }else {
+//            idTheLoai.setTextColor(Color.parseColor("#FF000000"));
+//            nameTheLoai.setTextColor(Color.parseColor("#FF000000"));
+//            vitri.setTextColor(Color.parseColor("#FF000000"));
+//            mota.setTextColor(Color.parseColor("#FF000000"));
+//            Ncc.setTextColor(Color.parseColor("#FF000000"));
+//        }
         view.findViewById(R.id.btnXoa).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

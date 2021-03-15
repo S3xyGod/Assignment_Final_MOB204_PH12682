@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.s3xygod.activity.List.ListCategory;
@@ -15,7 +16,7 @@ import com.s3xygod.activity.model.TheLoai;
 
 public class TheLoaiActivity extends AppCompatActivity {
     Button btAdd, btShow, btCancel;
-    EditText id, name, vitri, mota;
+    EditText id, name, vitri, mota, ncc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class TheLoaiActivity extends AppCompatActivity {
         name = findViewById(R.id.edtNameBook);
         vitri = findViewById(R.id.edtLocation);
         mota = findViewById(R.id.edtMoTa);
+        ncc = findViewById(R.id.edtNCC);
         btAdd = findViewById(R.id.btnAdd);
         btShow = findViewById(R.id.btnShow);
         btCancel = findViewById(R.id.btnCancel);
@@ -54,7 +56,7 @@ public class TheLoaiActivity extends AppCompatActivity {
                     return;
                 } else {
                     SQLTheLoai sqlTheLoai = new SQLTheLoai(TheLoaiActivity.this);
-                    TheLoai theLoai = new TheLoai(id.getText().toString(), name.getText().toString(), vitri.getText().toString(), mota.getText().toString());
+                    TheLoai theLoai = new TheLoai(id.getText().toString(), name.getText().toString(), vitri.getText().toString(), mota.getText().toString(), ncc.getText().toString());
                     sqlTheLoai.addTheLoai(theLoai);
                     Intent i = new Intent(TheLoaiActivity.this, ListCategory.class);
                     startActivity(i);

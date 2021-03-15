@@ -2,19 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="411dp"
-        android:layout_height="257dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
         <TextView
             android:id="@+id/idsach"
             android:layout_width="wrap_content"
@@ -25,8 +24,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.101" />
-
+            app:layout_constraintVertical_bias="0.056" />
         <TextView
             android:id="@+id/theloai"
             android:layout_width="wrap_content"
@@ -37,8 +35,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.256" />
-
+            app:layout_constraintVertical_bias="0.195" />
         <TextView
             android:id="@+id/tensach"
             android:layout_width="wrap_content"
@@ -49,8 +46,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.411" />
-
+            app:layout_constraintVertical_bias="0.316" />
         <TextView
             android:id="@+id/tacgia"
             android:layout_width="wrap_content"
@@ -61,8 +57,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.563" />
-
+            app:layout_constraintVertical_bias="0.459" />
         <TextView
             android:id="@+id/nhaxuatban"
             android:layout_width="wrap_content"
@@ -73,8 +68,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.689" />
-
+            app:layout_constraintVertical_bias="0.569" />
         <TextView
             android:id="@+id/dongia"
             android:layout_width="wrap_content"
@@ -85,8 +79,7 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.81" />
-
+            app:layout_constraintVertical_bias="0.701" />
         <TextView
             android:id="@+id/soluong"
             android:layout_width="wrap_content"
@@ -97,8 +90,15 @@
             app:layout_constraintHorizontal_bias="0.082"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.932" />
-
+            app:layout_constraintVertical_bias="0.832" />
+        <TextView
+            android:id="@+id/khuyenMai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="265dp" />
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
@@ -110,7 +110,6 @@
             app:layout_constraintStart_toEndOf="@+id/theloai"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.291" />
-
         <Button
             android:id="@+id/btnXoa"
             android:layout_width="wrap_content"
@@ -122,7 +121,5 @@
             app:layout_constraintStart_toEndOf="@+id/tacgia"
             app:layout_constraintTop_toBottomOf="@+id/button2"
             app:layout_constraintVertical_bias="0.44" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

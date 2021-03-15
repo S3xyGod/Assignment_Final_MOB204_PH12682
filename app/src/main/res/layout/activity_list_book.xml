@@ -4,13 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroud_dark"
     tools:context=".List.ListBook">
 
     <ListView
-        android:id="@+id/lvSach"
-        android:layout_width="match_parent"
-        android:layout_height="729dp"
+        android:id="@+id/lvListSach"
+        android:layout_width="371dp"
+        android:layout_height="604dp"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTG"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <EditText
+        android:id="@+id/editTG"
+        android:layout_width="257dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Input số lương sách"
+        android:textColor="@color/white"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnSearchTG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        app:layout_constraintStart_toEndOf="@+id/editTG"
+        app:layout_constraintTop_toTopOf="@+id/editTG"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 </androidx.constraintlayout.widget.ConstraintLayout>

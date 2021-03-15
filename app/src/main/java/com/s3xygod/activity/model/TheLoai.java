@@ -1,13 +1,21 @@
 package com.s3xygod.activity.model;
 
 public class TheLoai {
-    public String id, ten, vitri, mota;
+    public String id, ten, vitri, mota, ncc;
 
-    public TheLoai(String id, String ten, String vitri, String mota) {
+//    public TheLoai(String id, String ten, String vitri, String mota) {
+//        this.id = id;
+//        this.ten = ten;
+//        this.vitri = vitri;
+//        this.mota = mota;
+//    }
+
+    public TheLoai(String id, String ten, String vitri, String mota, String ncc) {
         this.id = id;
         this.ten = ten;
         this.vitri = vitri;
         this.mota = mota;
+        this.ncc = ncc;
     }
 
     public String getId() {
@@ -40,5 +48,13 @@ public class TheLoai {
 
     public void setMota(String mota) {
         this.mota = mota;
+    }
+
+    public String getNcc() {
+        return ncc;
+    }
+
+    public void setNcc(String ncc) {
+        this.ncc = ncc;
     }
 }

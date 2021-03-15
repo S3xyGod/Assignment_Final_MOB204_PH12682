@@ -17,34 +17,50 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:id="@+id/viewSTk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.943" />
+
+        <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/name"
-            app:layout_constraintHorizontal_bias="0.045"
-            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gmail"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.098" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/phone"
-            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/phone"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.308" />
+            app:layout_constraintVertical_bias="0.32" />
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/gmail"
             app:layout_constraintHorizontal_bias="0.045"
@@ -55,13 +71,14 @@
             android:id="@+id/gmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:text="TextView"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.716" />
+            app:layout_constraintVertical_bias="0.679" />
 
         <Button
             android:id="@+id/btnXoa"

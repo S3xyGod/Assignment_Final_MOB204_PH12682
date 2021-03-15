@@ -1,9 +1,19 @@
 package com.s3xygod.activity.model;
 
 public class Sach {
-    public String idsach, tlsach, tensach, tacgia, nhaxuatban, dongia, soluong;
+    public String idsach, tlsach, tensach, tacgia, nhaxuatban, dongia, soluong, khuyenmai;
 
-    public Sach(String idsach, String tlsach, String tensach, String tacgia, String nhaxuatban, String dongia, String soluong) {
+//    public Sach(String idsach, String tlsach, String tensach, String tacgia, String nhaxuatban, String dongia, String soluong) {
+//        this.idsach = idsach;
+//        this.tlsach = tlsach;
+//        this.tensach = tensach;
+//        this.tacgia = tacgia;
+//        this.nhaxuatban = nhaxuatban;
+//        this.dongia = dongia;
+//        this.soluong = soluong;
+//    }
+
+    public Sach(String idsach, String tlsach, String tensach, String tacgia, String nhaxuatban, String dongia, String soluong, String khuyenmai) {
         this.idsach = idsach;
         this.tlsach = tlsach;
         this.tensach = tensach;
@@ -11,7 +21,10 @@ public class Sach {
         this.nhaxuatban = nhaxuatban;
         this.dongia = dongia;
         this.soluong = soluong;
+        this.khuyenmai = khuyenmai;
     }
+
+
 
     public String getIdsach() {
         return idsach;
@@ -67,5 +80,13 @@ public class Sach {
 
     public void setSoluong(String soluong) {
         this.soluong = soluong;
+    }
+
+    public String getKhuyenmai() {
+        return khuyenmai;
+    }
+
+    public void setKhuyenmai(String khuyenmai) {
+        this.khuyenmai = khuyenmai;
     }
 }

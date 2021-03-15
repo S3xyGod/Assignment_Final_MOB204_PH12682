@@ -23,7 +23,7 @@ public class ChaoActivity extends AppCompatActivity {
                    catch (InterruptedException e){
                        e.printStackTrace();
                    }
-                   cho += 600;
+                   cho += 800;
                }
                Intent i = new Intent(ChaoActivity.this,DangNhapActivity.class);
                i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

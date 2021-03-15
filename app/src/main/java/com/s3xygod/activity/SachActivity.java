@@ -14,13 +14,15 @@ import android.widget.Toast;
 
 import com.s3xygod.activity.List.ListBook;
 import com.s3xygod.activity.SQlite.SQLSach;
+import com.s3xygod.activity.SQlite.SQLTheLoai;
 import com.s3xygod.activity.model.Sach;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SachActivity extends AppCompatActivity {
     Button btThem, btHienThi, btHuy;
-    EditText id, tensach, tacgia, nhaxuatban, dongia, soluong;
+    EditText id, tensach, tacgia, nhaxuatban, dongia, soluong, km;
     Spinner theloai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +38,11 @@ public class SachActivity extends AppCompatActivity {
         dongia = findViewById(R.id.edtDonGia);
         soluong = findViewById(R.id.edtSoLuong);
         btHuy = findViewById(R.id.btnCanCel);
-        final ArrayList<String> thel= new ArrayList<String>();
-        thel.add("IT");
-        thel.add("Math");
-        thel.add("English");
-        thel.add("Literature");
+        km = findViewById(R.id.txt_km);
+
+        List<String> thel= new ArrayList<String>();
+        SQLTheLoai sqlTheLoai = new SQLTheLoai(getApplicationContext());
+        thel = sqlTheLoai.getallStrTL();
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,thel);
         theloai.setAdapter(adapter);
         theloai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -92,7 +94,7 @@ public class SachActivity extends AppCompatActivity {
                 }
                 else {
                     SQLSach sqlSach = new SQLSach(SachActivity.this);
-                    Sach sach  = new Sach(id.getText().toString(), theloai.getSelectedItem().toString(), tensach.getText().toString(), tacgia.getText().toString(),nhaxuatban.getText().toString(),dongia.getText().toString(),soluong.getText().toString());
+                    Sach sach  = new Sach(id.getText().toString(), theloai.getSelectedItem().toString(), tensach.getText().toString(), tacgia.getText().toString(),nhaxuatban.getText().toString(),dongia.getText().toString(),soluong.getText().toString(), km.getText().toString());
                     sqlSach.addSach(sach);
                     Intent it = new Intent(SachActivity.this, ListBook.class);
                     startActivity(it);

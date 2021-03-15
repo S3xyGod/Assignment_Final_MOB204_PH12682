@@ -1,14 +1,19 @@
 package com.s3xygod.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.s3xygod.activity.List.ListUser;
@@ -17,7 +22,8 @@ import com.s3xygod.activity.model.NguoiDung;
 
 public class NguoiDungActivity extends AppCompatActivity {
     Button btAdd, btList, btCancel,xoa;
-    EditText id, phone, fullname, gmail;
+    EditText id, phone, fullname, gmail, stk;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,7 @@ public class NguoiDungActivity extends AppCompatActivity {
         gmail = findViewById(R.id.edtGmail);
         btCancel = findViewById(R.id.btnCancel);
         xoa = findViewById(R.id.btnXoa);
+        stk = findViewById(R.id.edtSTK);
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,40 +53,39 @@ public class NguoiDungActivity extends AppCompatActivity {
             public  boolean validateNumber(CharSequence number){
                 return  !TextUtils.isEmpty(number) && Patterns.PHONE.matcher(number).matches();
             }
+
             @Override
             public void onClick(View view) {
-                if (id.length() == 0) {
+                String idmem = id.getText().toString().trim();
+
+                if (id.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Không được để trống ID Người dùng", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (fullname.length() == 0) {
+                }else if (id.getText().toString().trim().length() < 5 || id.getText().toString().trim().length() >15){
+                    Toast.makeText(getApplicationContext(), "ID Người dùng phải trên 5 và dưới 15 ký tự", Toast.LENGTH_SHORT).show();
+                }else  if (checkFirstChar(idmem) == false){
+                    Toast.makeText(getApplicationContext(), "ID Người dùng phải bắt đầu bằng 1 ký tự in hoa", Toast.LENGTH_SHORT).show();
+                }else if (fullname.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "không được để trống họ tên", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (phone.length() == 0) {
+                }else if (phone.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Không được để trống số điện thoại", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (phone.length()!=10){
+                }else if (phone.getText().toString().trim().length()!=10){
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập đúng định dạng số điện thoại", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if(!validateNumber(phone.getText().toString())){
+                }else if(!validateNumber(phone.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập đúng định dạng số điện thoại", Toast.LENGTH_SHORT).show();
                     return;
-                }
-
-                    if (gmail.length() == 0) {
+                }else if (gmail.getText().toString().trim().length() == 0) {
                         Toast.makeText(getApplicationContext(), "không được để trống gmail", Toast.LENGTH_SHORT).show();
                         return;
-                }
-                if (!validateEmail(gmail.getText().toString())) {
+                }else if (!validateEmail(gmail.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập đúng định dạng email", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else {
+                } else {
                         SQLNguoiDung sqlNguoiDung = new SQLNguoiDung(NguoiDungActivity.this);
-                        NguoiDung nguoiDung = new NguoiDung(id.getText().toString(), fullname.getText().toString(), phone.getText().toString(), gmail.getText().toString());
+                        NguoiDung nguoiDung = new NguoiDung(id.getText().toString(), fullname.getText().toString(), phone.getText().toString(), gmail.getText().toString(), stk.getText().toString());
                         sqlNguoiDung.addNguoiDung(nguoiDung);
                         Intent i = new Intent(NguoiDungActivity.this, ListUser.class);
                         startActivity(i);
@@ -95,6 +101,17 @@ public class NguoiDungActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Hiển thị thành công", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public boolean checkFirstChar(String user){
+        char first = user.charAt(0);
+        char[] Up = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'
+                ,'M', 'N', 'L', 'O', 'Ô', 'Ơ', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Z'};
+        for (int i = 0; i < Up.length; i++){
+            if (first == Up[i]){
+                return true;
+            }
+        }
+        return false;
     }
 }
 

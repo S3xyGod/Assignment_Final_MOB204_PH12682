@@ -7,6 +7,22 @@
     android:background="@drawable/backgroud_dark"
     tools:context=".NguoiDungActivity">
 
+    <EditText
+        android:id="@+id/edtSTK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Số tài khoản"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFullName"
+        app:layout_constraintVertical_bias="0.065" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="410dp"
@@ -23,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="ID thành viên"
+        android:hint="ID thành viên/User"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#C1C1C1"
@@ -32,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <EditText
         android:id="@+id/edtFullName"
@@ -48,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtIDUser"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <EditText
         android:id="@+id/edtPhoneUser"
@@ -63,8 +79,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFullName"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSTK"
+        app:layout_constraintVertical_bias="0.104" />
 
     <EditText
         android:id="@+id/edtGmail"
